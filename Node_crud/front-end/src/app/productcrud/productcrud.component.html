@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <div class="card">
+        <h1>Add Product</h1>
+<form>
+<div class="form-group">
+  <label>Product Name</label>
+  <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"class="form-control" id="name" placeholder="Enter Product Name">
+</div>
+
+<div class="form-group">
+    <label>Category Name</label>
+    <input type="text" class="form-control"  [(ngModel)]="address" [ngModelOptions]="{standalone: true}" id="address" placeholder="Enter Category Name">
+  </div>
+
+  <div class="form-group">
+    <label>Category ID</label>
+    <input type="text" class="form-control" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" id="phone" placeholder="Enter Category ID">
+  </div>
+<button type="submit" (click)="register()" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+
+<div class="container mt-4" >
+    <h1>Product List</h1>
+    <table class="table">
+      <thead>    
+      <tr>
+          <th scope="col">Product Name</th>
+          <th scope="col">Category Name</th>
+          <th scope="col">Category ID</th>  
+          <th scope="col">Option</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let ProductItem of ProductArray">
+          <td>{{ProductItem.name  | uppercase}}</td>
+          <td>{{ProductItem.address }}</td>
+          <td>{{ProductItem.phone }}</td>
+          <td>
+            <button type="button" class="btn btn-success" (click)="setUpdate(ProductItem)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="setDelete(ProductItem)">Delete</button>            
+          </td>
+        </tr>          
+      </tbody>
+    </table>
+     
+    </div>
